@@ -37,7 +37,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   File? selectedImage;
   String? message ="";
-  File? img ;
   Future getImage()async {
     final PickedImage =
     await ImagePicker().getImage(source: ImageSource.camera);
@@ -46,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   var x ;
   var  m  ;
-  File? v;
   int id =0 ;
 
   uploadImage() async{
@@ -59,19 +57,15 @@ class _MyHomePageState extends State<MyHomePage> {
   final resJson = jsonDecode(res.body);
   message = resJson['message'];
   id =resJson['id'];
-  //img = resJson['img'];
   x = message ;
   m= id  ;
-  //v=img;
   Text(x);
    id ;
-   //img ;
   setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
 
@@ -85,35 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
             selectedImage == null
                  ? Text("upload  photo")
                   : Text("message")
-           // Image.file(selectedImage!)
-
-
            // ,
              ,
           x == null? Text("not apload"):Text(x)
           ,
 
-
         id==0 ?Text("."): Text("$id")
               ,
-       // img ==null? Text("."):Image.file(img!),
-
-
-
           TextButton.icon(onPressed:  uploadImage , icon: Icon(Icons.fifteen_mp), label: Text("upload"))
-
            ],
-
         ),
-
       ),
-
-
     floatingActionButton: FloatingActionButton(onPressed: getImage  ,
     child: Icon(Icons.add_a_photo),
     ),
-
-
     );
   }
 }
