@@ -16,8 +16,8 @@ def upload():
 
         def :
            
-
+              //value = 
         return jsonify({
-            "message":"value",
+            "message": value,
             "id": 0 ,
         })
