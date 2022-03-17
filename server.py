@@ -1,9 +1,9 @@
-from _future_ import print_function
+from __future__ import print_function
 from flask import Flask, request ,jsonify
 import werkzeug
 import cv2
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/upload', methods=["POST"])
 def upload():
